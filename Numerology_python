@@ -1,0 +1,250 @@
+from tkinter import *
+
+
+root=Tk()
+root.geometry("1000x700+0+0")
+
+root.title("NUMEROLOGY")
+
+#f1=Frame(root,bd=5,relief=SUNKEN,bg="black").place(x=0,y=0,width=1000,height=120)
+nmeP=StringVar()
+yr12P=StringVar()
+CTP=StringVar()
+yreP=StringVar()
+meP=StringVar()
+deP=StringVar()
+L1=Label(root,text="NUMEROLOGY-Know About Yourself",fg="white",bg='black',font=("arial", 40, "bold"),pady=22)
+L1.pack(fill=X)
+
+f2=Frame(root,bd=5,relief=SUNKEN,bg="black").place(x=0,y=115,width=400,height=550)
+
+nm=Label(f2,text="NAME :",font=("times new roman",14,"bold"),fg="white",bg="black")
+nm.place(x=10,y=140)
+nme=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",textvariable=nmeP)
+nme.place(x=165,y=140)
+
+
+yr=Label(f2,text="CONTACT :",font=("times new roman",14,"bold"),fg="white",bg="black")
+yr.place(x=10,y=200)
+yr12=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",textvariable=yr12P)
+yr12.place(x=165,y=200)
+
+XZ=Label(f2,text="-------------------BIRTH DETAILS-------------------",font=("times new roman",14,"bold"),fg="white",bg="black")
+XZ.place(x=5,y=250)
+
+
+
+CT=Label(f2,text="BIRTH PLACE :",font=("times new roman",14,"bold"),fg="white",bg="black")
+CT.place(x=10,y=330)
+CT=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",width=8,textvariable=CTP)
+CT.place(x=165,y=330)
+
+yr1=Label(f2,text="BIRTH YEAR :",font=("times new roman",14,"bold"),fg="white",bg="black")
+yr1.place(x=10,y=390)
+yre=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",width=8,textvariable=yreP)
+yre.place(x=165,y=390)
+
+
+m1=Label(f2,text="BIRTH MONTH :",font=("times new roman",14,"bold"),fg="white",bg="black")
+m1.place(x=10,y=450)
+me=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",width=8,textvariable=meP)
+me.place(x=165,y=450)
+
+
+d1=Label(f2,text="BIRTH DATE :",font=("times new roman",14,"bold"),fg="white",bg="black")
+d1.place(x=10,y=510)
+de=Entry(f2,font=("times new roman",14,"bold"),bd=2,relief=GROOVE,fg="black",width=8,textvariable=deP)
+de.place(x=165,y=510)
+
+def submit():
+    try:
+        y=yre.get()
+        m=me.get()
+        d=de.get()
+        z=(y+m+d)
+        z1=list(z)
+        z2=int(z1[0])+int(z1[1])+int(z1[2])+int(z1[3])+int(z1[4])+int(z1[5])+int(z1[6])+int(z1[7])
+        z3=str(z2)
+        z4=int(z3[0])+int(z3[1])
+    except IndexError:
+        txtarea.insert(END,"PLEASE ENTER BIRTH DETAILS IN VALID FORMAT(YYYY/MM/DD).\n\nPRESS CLEAR AND TRY AGAIN.\n\nTHANK YOU.")
+    if  z4==10 or z4==19:
+        txtarea.insert(END, P1+"\n\nTHANK YOU...")
+    elif z4==2 or z4==11 :
+        txtarea.insert(END,P2+"\n\nTHANK YOU...")
+    elif z4==3 or z4==12:
+        txtarea.insert(END, P3+"\n\nTHANK YOU...")
+    elif z4==4 or z4==13:
+        txtarea.insert(END, P4+"\n\nTHANK YOU...")
+    elif z4==5 or z4==14:
+        txtarea.insert(END, P5+"\n\nTHANK YOU...")
+    elif z4==6 or z4==15:
+        txtarea.insert(END, P6+"\n\nTHANK YOU...")
+    elif z4 == 7 or z4 == 16:
+        txtarea.insert(END, P7+"\n\nTHANK YOU...")
+    elif z4 == 8 or z4 == 17:
+        txtarea.insert(END, P8+"\n\nTHANK YOU...")
+    elif z4 == 9 or z4 == 18:
+        txtarea.insert(END, P9+"\n\nTHANK YOU...")
+
+def clear():
+    txtarea.delete('1.0', END)
+    nmeP.set("")
+    yr12P.set("")
+    yreP.set("")
+    CTP.set("")
+    meP.set("")
+    deP.set("")
+
+
+def exit():
+
+    root.destroy()
+
+
+bt1=Button(f2,text="Submit",bg="white",fg="black",width=8,font=("arial",14,"bold"),command=submit)
+bt1.place(x=20,y=600)
+
+bt2=Button(f2,text="Clear",bg="white",fg="black",width=8,font=("arial",14,"bold"),command=clear)
+bt2.place(x=150,y=600)
+
+bt3=Button(f2,text="Exit",bg="white",fg="black",width=8,font=("arial",14,"bold"),command=exit)
+bt3.place(x=280,y=600)
+
+
+
+
+
+Scrol_y=Scrollbar(orient=VERTICAL)
+txtarea=Text(yscrollcommand=Scrol_y.set,width=62,height=29,font=("arial",12,"bold"))
+Scrol_y.pack(side=RIGHT,fill=Y)
+Scrol_y.config(command=txtarea.yview)
+txtarea.place(x=410,y=115)
+
+
+
+P1='''YOUR NUMBER IS 1:
+There's so much motivation and momentum surrounding this single-digit number. It is a true pioneer, eager to break ground on new endeavours and pave the way for others to follow. It is a natural leader and a proactive force. The number 1 represents newness, movement, and the possibilities that await us. In spiritual symbolism, it is the number of creation and the birth of all things -- the divine origin of the universe.
+
+In Numerology the number 1 is the root of opportunity in our lives. It is a symbol of confidence, power, and action. It pushes us to look at our current circumstances and realize that we have the power to turn them into anything we wish. Even if we are afraid, the 1 inspires us to take control of our future and embrace new beginnings.\n
+
+Strengths of the number 1:
+Independent: Of all the numbers in Numerology, the 1 is the most self-sufficient, needing nothing but itself and its energy to thrive. It doesn't sit around waiting for opportunities to come about, it makes its own luck by capitalizing on circumstances others may be afraid to explore. The single-digit number 1 doesn't want to waste any time getting stuck negotiating or discussing plans. Going it alone allows for greater flexibility and quick, efficient movement.
+
+Goal-oriented: With a positive outlook and unwavering self-determination, this number excels at setting and going after its goals. It has a hard time standing still because it sees a world packed with possibilities just waiting to be taken advantage of. It's not that the number 1 can't be satisfied, rather, its satisfaction comes from staying active and always progressing. In a few words: Why stand still when you could advance?
+Innovative: Roadblocks don't exist for the strong-willed 1 -- not because they don't arise, but because this number's innovative mind-set can find new ideas and creative solutions to work around them. Instead of being daunted by obstacles, the 1 looks at them as a challenge that must be (and will be) overcome. Seeing a door where others see a wall is a major asset to the 1's success.
+\n
+Weaknesses of the number 1:
+
+Forceful: While this number can come across as ambitious, its stop-at-nothing attitude can also make it seem uncaring or domineering as it pushes its way forward. More physical than spiritual, it doesn't need anyone else's help and is too focused on its own pursuits to even realize when it's made an offense. Softer energies of cooperation and patience get shoved aside in the interest of movement and progress.
+
+Risky: The number 1 would call itself fearless, but a lack of foresight can all-too-easily lead it into trouble that could have been avoided. Tunnel vision and an extreme sense of invincibility makes the 1 so focused on the path before it that it can miss the warning signs in its peripheral vision.
+
+Doubtful: With such an extreme drive to accomplish and succeed, self-doubt is this number's Achilles heel. Though it won't show it on the outside, the number 1 harbors a deep fear of making mistakes or coming up short of its goal. It takes even minor criticism to heart but will ultimately use it as motivation to improve.'''
+
+P2='''YOUR NUMBER IS 2:
+The Numerology number 2 is known to numerologists as a supremely feminine force, one that represents both grace and power. It is cooperative, always aiming to bring peace and balance back to a relationship or situation. This Numerology number is also very sensitive -- of all the numbers, it has the strongest intuition. It is able to sense currents and feelings instinctively, then use these clues to connect with others empathically.
+At its very core the 2 in Numerology represents partnerships -- the coming together or balancing of two individual people, concepts, or things. While it holds great power over any situation, it wields it with such diplomacy and tact that the result is not control and authority, but harmony and teamwork. It is a mediator, able to see two sides of a situation in an unbiased way and guide others down the middle road.\n
+Strengths of the number 2:
+Intuitive: On a very deep and subconscious level, this number can pick up on energies that cannot be seen, only felt. This trait allows the number 2 to be instinctually aware of feelings, thoughts, hopes, and fears others haven't even expressed, then use them as opportunities to offer support and compassion to the partnership.
+Unifying: The 2 in Numerology is a peacemaker that is keenly aware of the values of cooperation and working together. It is diplomatic in its dealings, because to be anything else would create imbalance. Even when up against contrasting energies, this number sees how the differences can join together to create something complete and well-rounded.
+Influential: The 2 holds a tremendous amount of power over situations and relationships (love and otherwise) but handles it so carefully that its influence can go almost undetected. It's like it's working behind the scenes: no one sees it happening, but the results are undeniable. It does not have to push or use force with others because its incredible abilities of compassion and cooperation influence them to follow its guidance.
+\nWeaknesses of the number 2:
+Indecisive: In an effort to always stay in the middle, the number 2 has a hard time seeing biases which makes it difficult to make decisions both large and small. When a preference cannot be identified one way or another, this number gets stuck in inaction.
+Easily hurt: The drive to instil harmony within itself and with others is so strong that even the slightest irk or insult can throw the number 2 off balance and into a world of hurt. There are very sensitive energies here. After everything it puts into creating unity, anything that threatens or works against these efforts feels especially painful to the 2.
+Unassertive: The number 2 will put its own needs aside in order to keep the peace. More passive than assertive, it may stay in an unpleasant situation far too long, quietly struggling to make it better on its own instead of being more direct and efficient in its actions. It will often choose its current experience over a new and different path.
+'''
+
+P3='''P3=YOUR NUMBER IS 3:
+The 3 has a tendency to thrive in an upbeat and engaging atmosphere. Its energy is youthful and positive and it has an incredible zest for life. It dances from one enjoyable experience to the next, eager to interact with others along the way. The prized skill of the number 3 is communication and it uses this talent to build a wide and interesting circle of friends, lovers, and kindred spirits.
+The 3 is highly original and embraces unique thinking and creative expression. This number's artistic, curious nature allows it to convey abstract ideas and find solutions others may miss. A child at heart, the number 3 never misses a chance to have fun, engage with others, and express all the love and joy it embodies.
+\nStrengths of the number 3:
+Communicative: The 3 is a communicator through and through and shines in all forms of expression. It is bursting with thoughts, ideas, dreams, and musings and must let them out to the world. The number 3 is the "ideas person," and by sharing these notions it attracts supportive energies that can turn its ideas into real plans.
+Artistic: Colour, music, creation ... anything that engages the senses has the number 3 written all over it. It realizes the written and spoken word can only take us so far. Words can communicate ideas, but to express our feelings we need the unparalleled power of art.
+Charming: The number 3 has an easy time attracting other people with its magnetic personality. Its light hearted demeanour and ability to communicate well combine to create a natural charisma that gets and keeps others' attention. Without even trying, the 3 in Numerology is the apple of everyone's eye.
+
+\nWeaknesses of the number 3:
+Naive: The young and innocent nature of the number 3 in Numerology makes it very unaware of the realities of the world. Because it hasn't had any experience to develop this mature wisdom, it is susceptible to making poor decisions, putting itself in bad situations, and getting burned by others.
+Unfocused: This number suffers from shiny-object syndrome. It is excited by everything it sees and won't spend much time looking in one direction before shifting focus elsewhere. It is so full of enthusiastic energy that it just wants to live and love and laugh and create ... which means real-life goals and progress fall by the wayside.
+Shallow: The 3 in Numerology prefers to live on the surface of life and relationships. To go deeper would mean opening itself to potential negativity and having to relate to feelings and situations that it doesn't have much experience with. This number puts pleasure before growth -- if it isn't light hearted and enjoyable, the 3 would rather not participate at all.
+
+'''
+
+P4='''YOUR NUMBER IS 4:
+When strength and efficiency are needed, it's number 4 to the rescue. The 4 in Numerology is a no-nonsense number with a heads-down approach to life and work. It is extremely dependable and lends a great amount of stability to a person or situation. The 4 is dedicated to advancing, but in a more conservative way than a progressive one. It sticks to what is tried-and-true instead of attempting methods that are new.
+Even more than the number 13 in western cultures, the number 4 is considered very unlucky in some Asian countries. There's even a name for the fear of the number 4: tetraphobia. But in reality the Numerology number 4 carries a wise and rational energy that can bring us a sense of security and consistency. It has a strict definition of right and wrong and tends to see things as black and white with no grey in between. The number 4 leads with its head, not its heart, and uses this mental strength to build a life of service and contentment.
+\nStrengths of the number 4:
+Practical: The 4 has a realistic outlook on life and isn't swayed by the newest or shiniest object, experience, or idea. This rationality allows it to make wise decisions and develop solid plans that can really move the meter. For the 4, practicality is the root of productivity.
+Loyal: The number 4 prides itself on being dependable and will work hard all day to prove its level of commitment. It needs a stable foundation to feel comfortable, so it will put great effort into creating secure, long-lasting relationships, opportunities, and agreements.
+Service-oriented: Its hardworking nature means that service comes naturally to the 4. It knows you need to put in time and effort to get the best results, so acts of service in relationships, jobs, friendships, and at home are necessary to keep things running smoothly. It's another way the 4 creates stability, and it is happy to put in the work.
+\nWeaknesses of the number 4:
+Dogmatic: The nature of the number 4 is very conservative and firm in its personal beliefs. Once it has made up its mind it sees its opinions as facts and has no hang-ups about preaching them to others. Unfortunately, this concrete way of thinking leaves no room for other perspectives to enter. While the 4 believes it is staying true to itself, it really is limiting itself.
+Dull: Choosing to work over play and sticking to traditional interests and activities, the number 4 can honestly be a bit boring. It can be a straight-edge that is not easily excited nor is it interested in experimenting or trying new things. It is perfectly content in its way of life, it's just that this way of life isn't all that interesting to others.
+Rigid: It's hard for the number 4 to be a team player because it is so inflexible. It's confident to a fault, always thinking it's right and never allowing itself to be swayed. This assuredness makes sense in some situations, but when it comes to give-and-take and working together, the 4 has a lot to learn.
+'''
+
+P5='''YOUR NUMBER IS 5:
+A key characteristic of the number 5 is curiosity and the need for a variety of exciting experiences in order to feel fulfilled. It craves freedom and adventure and isn't afraid to let the wind carry it where it may. For the 5, life isn't about setting goals and making plans, it's about getting out there and experimenting. Anything that stirs the senses piques the 5's interest and it can't wait to partake in the experience.
+The Numerology number 5 is a master of change, able to go with the flow and adapt itself to thrive in different environments and social situations. It is happiest when things feel fresh, high energy, and full of possibility. The moment an experience starts to feel too routine or predictable, the 5 will move on to something more captivating. The only thing this number is truly attached to is being unattached.
+\nStrengths of the number 5:
+Curious: The opposite of tunnel vision, the Numerology number 5 has 360-degree vision and everything it sees looks enticing. This curious nature leads it into a variety of exciting and enlightening new experiences few others may have. For the 5, the best way to learn is to experiment.
+Adaptable: This number does not stick with any one idea, job, relationship, or situation long, so being flexible is vital. Its detached emotions allow it more freedom of movement. Whether something changes by choice or by chance, this number can easily shift gears and direct its attention and energy toward its new circumstances.
+Social: The number 5 is an explorer and knows that one of the best ways to experience the world is to interact with the people in it. Whether it's one-on-one or in a lively group setting, this number flourishes in social situations and never misses a chance to engage with and learn from someone new.
+
+\nWeaknesses of the number 5:
+Non-committal: An uncontrollable need for freedom and constant change makes the number 5 very non-committal. To the 5, committing means being bored and tied down, which goes against everything it stands for. Forming meaningful relationships and becoming proficient in life skills are difficult because this number lacks the attention to see things through.
+Unreliable: Easily distracted and sometimes curious to a fault, the number 5 has difficulty maintaining its focus long enough to follow through on projects and promises. This inconsistency is damaging to agreements and relationships of all types and can make the 5 come across as incapable and uncaring.
+Directionless: This number has no problem just seeing where life takes it. But without any sense of direction, the 5 wastes a lot of time on experiences that don't serve a purpose while missing out on opportunities that could make it more successful. Looking back, the 5 may realize it should have spent more time preparing.'''
+
+
+P6='''YOUR NUMBER IS 6:
+The number 6 is the embodiment of the heart. It represents unconditional love and the ability to support, nurture, and heal. It is a powerful force of compassion and empathy and its warm light is a beacon of hope. Its role is to use its heart and soul to be of service to others.
+The 6 in Numerology shines in partnerships of all kinds but especially emotional ones. Its empathy makes others comfortable letting down their guard and being open and honest about their feelings which, in turn, allows it to understand and provide the help that's needed. We could all use someone in our life who manifests the devoted energy of the 6.
+\nStrengths of the number 6:
+Supportive: When a shoulder is needed to lean on, the number 6 will be the first to arrive, equipped with a kind, soft presence and heartfelt advice. It does not simply wait to speak -- it truly listens and seeks to understand so it can direct its compassion and healing where it is needed most.
+Protective: The unconditional love of the 6 extends to all beings and allows it to speak up for those that don't have a voice. But this protection becomes especially fierce when it comes to family. Anything that threatens to upset the emotional or spiritual balance of its loved ones will awaken the ire of the 6.
+Romantic: The 6 is more romantic than any other number. It works hard to create peaceful, mutual relationships and is fluent in all the love languages. The number 6 is only happy when its other half is happy, so it will direct all its time, support, and affection into making this so.
+
+\nWeaknesses of the number 6:
+Passive: In an effort to please others and keep the peace, the number 6 may allow itself to get taken advantage of often. More assertive, controlling energies can easily overpower the 6 who would rather go along with an undesirable option than speak up and make waves.
+Self-sacrificing: While its compassion is a virtue, the number 6 is so willing to sacrifice itself for other people and the sake of harmony that it neglects its own needs and well-being. There is only so much one can give and this number often overlooks the self-care that would make it feel balanced. As they say, you can't pour from an empty cup.
+Idealistic: The 6 expects everyone to treat others the way it does which, in its mind, would lead to a perfect world. But that's not the way the real world works, and when this number realizes its ideals are unattainable it may face extreme upset and imbalance.
+'''
+P7='''YOUR NUMBER IS 7:
+The number 7 is both deep and wise. It is not satisfied with simple explanations and surface-level information -- this is frivolous stuff. It knows that the real gold is buried deeper and won't stop until it finds it ... and then it'll keep digging for more. Asking questions, researching, listening, and sensing are all special skills the 7 uses in its search for awareness.
+Though spirituality is especially important to the number 7 in Numerology, it takes a more intellectual approach to life than an emotional one. It is an analytical number that enjoys gathering and filtering through information to find answers. Still, it has a more powerful intuition than you might expect which it uses as a guide. This combination of conscious and subconscious thinking allows the mind of the Numerology number 7 to shine a light into the very deepest realms to access hidden truths.
+\nStrengths of the number 7:
+Spiritual: The 7's understanding that there is always something deeper, something more we can't see, instils in it a great sense of spirituality. While religion is too limiting for this boundless number, a very personal, intellectual connection to the spiritual world gives its experiences more mystery and meaning.
+Curious: With infinite questions waiting to be answered, the world is an incredibly engaging place for the number 7. It finds interest in many topics and seeks to absorb as much knowledge and understanding as it can. Whether it's practical or metaphysical doesn't matter, the number 7 always wants to know more.
+Analytical: The number 7 isn't just an information sponge. While it is driven to take in all the data it can, its real strength lies in sorting through what it finds. Being able to separate what's useful from what's meaningless and identify fact from fiction helps the 7 stay on track and follow the most valuable wisdom.
+\nWeaknesses of the number 7:
+Reclusive: The 7 spends most of its time deep in thought and study and doesn't place much importance on the lighter side of life. Over time a lack of social involvement turns the 7 even further inward, limiting its life experiences and making it unable to forge new friendships and romantic connections.
+Secretive: This number is more comfortable holding its cards close to its chest. It's not that the 7 is trying to hide damaging secrets, it just doesn't feel the need for everyone to know everything about it. The problem is, it's impossible to connect with others in genuine way if you won't ever let them see to the real you.
+Suspicious: Because of its insatiable need to look below the surface, the number 7 may upset a good thing by making assumptions and accusations or digging for answers when there are none. It is always assuming there is more to the story, even when there really isn't.'''
+
+P8='''YOUR NUMBER IS 8:
+Of all the numbers in Numerology, the number 8 is the achiever and measures life by the goals it reaches. It has good business sense, a powerful presence, and a strong drive for success. The 8 is also a symbol of balance -- you can see it in its symmetrical shape. For every blessing it receives, it puts one back out to the universe. When things are balanced, they feel stable, controlled, and supported, which is the most productive environment for the 8 to work in.
+In Chinese culture, the number 8 is considered the luckiest number of all, and is purposefully worked into wedding dates, birth dates, addresses, and finances. Even in the world of Numerology, there are people who have been known to change their name in order to add more 8s to their Numerology chart, hoping to emulate this number's level of accomplishment. The 8 represents an ultimate form of achievement that many will spend their entire lives striving for.
+\nStrengths of the number 8:
+Ambitious: To say the 8 has ambition would be putting it lightly -- they live to achieve! This number is on a mission to reach as many goals and garner as much success as possible. It is strategic in its methods and dedicated to its purpose. The good feelings that come from accomplishment give the 8 everything it needs to keep climbing upward.
+Karmic: In a spiritual sense, the number 8 is all about giving back. It realizes that its successes are not its alone and will intentionally recognize and appreciate any help it has received. It balances achievement with gratitude, which can then be rebalanced with more achievement -- it's a cycle of success that the 8 is continuously manifesting.
+Enduring: Even when the chips are down, the 8 in Numerology has a great sense of fortitude. It knows it is capable, but that capability often isn't the only factor at play. With patience and determination, the 8 is confident that things will come around eventually. It is willing to go through struggle because it has no doubt that prosperity is on the other side.
+\nWeaknesses of the number 8:
+Materialistic: The 8 likes to revel in its accomplishments by surrounding itself with nice things. It looks at this as a personal reward and a way to rebalance the cycle of manifestation. Unfortunately, to others this trait can make the 8 appear shallow or like a show-off. It may also attract opportunists who misunderstand the 8's intentions.
+Authoritative: It's no surprise all this accomplishment goes straight to the number 8's head. It's used to being a leader and this gives it a feeling of personal power. But the 8 always assumes its way is the right way and, by dismissing others' opinions and ignoring their efforts, it may lose their support even faster than it gained it.
+Entitled: The 8 in Numerology isn't about to ask for permission or forgiveness. Its need to succeed can make it blind to rules and processes, but ignoring these limits and taking things into its own hands makes teamwork impossible and drives a wedge in partnerships. The number 8 is so used to getting its way that it now expects it.'''
+
+P9='''YOUR NUMBER IS 9:
+The energy of the number 9 represents completion, but not finality. Think of it more in a cyclical sense; it's about the ending of one cycle and the potential it creates for another cycle to begin. The 9 in Numerology acts as an usher in this process of transition or transformation, guiding and empowering us with its wisdom. It absorbs answers from a spiritual source, then delivers them to us in the real world.
+This number is a humanitarian at heart. It is compassionate, kind, and intent on putting its efforts toward creating the greatest good. The 9 in Numerology has gone through its fair share of hardship and is wiser, stronger, and more aware as a result. These first-hand experiences make it especially understanding of others who are struggling and willing to provide valuable support.
+\nStrengths of the number 9:
+Awakening: Through life experience, the number 9 in Numerology has learned the value and magnitude of its inner wisdom. It is now in a position to awaken others to their own higher self. Leading by example, the 9 shows how to handle hardship with grace and understanding, inspiring others to do the same.
+Tolerant: While some other numbers are strictly focused on black and white, the number 9 sees the infinite shades of grey between. It does not draw a line between any races, religions, or ways of life -- it gives space and respect to everybody. A healthy lack of judgement and bias allows the 9 to see everyone as valuable and worthy of its support.
+Supportive: The soft heart of the number 9 attracts many souls looking for support. Regardless of what it is going through itself, it knows its duty is to help others on their way. It is aware of how the world works and knows what it takes to get through challenging times, making it a valuable source of advice, comfort, and healing for others.
+\nWeaknesses of the number 9:
+Resentful: The number 9 has had many experiences that have left a heavy imprint on its heart. When it doesn't allow itself to process and heal these wounds, this resentment casts a shadow on the 9's spirit and negatively impacts its present-day relationships.
+Sacrificing: This number is giving to a fault. It feels it is fulfilling a responsibility by being there in any capacity for those who need it, but this is a sacrificial mind set. The 9 in Numerology is so focused on caring for others that it neglects to care for itself, building the foundation for an imbalanced and unfocused life.
+Suffering: Throughout the challenges the number 9 has endured, it can fall into the mind set that life is suffering. It may put more importance on times of struggle than times of ease, or on tumultuous relationships than balanced ones. The more that 9 accepts hardship, the more regular it may become.
+'''
+
+mainloop()
